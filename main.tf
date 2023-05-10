@@ -16,7 +16,7 @@ resource "azurerm_virtual_network" "vnet-d365" {
   #tags = var.common_tags 
 }
 
-/resource "azurerm_subnet" "snet-bastion" {
+resource "azurerm_subnet" "snet-bastion" {
   name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.rg-d365.name
   virtual_network_name = azurerm_virtual_network.vnet-d365.name
