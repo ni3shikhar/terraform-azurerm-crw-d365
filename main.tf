@@ -16,12 +16,12 @@ resource "azurerm_virtual_network" "vnet-d365" {
   #tags = var.common_tags 
 }
 
-/*resource "azurerm_subnet" "snet-bastion" {
+/resource "azurerm_subnet" "snet-bastion" {
   name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.rg-d365.name
   virtual_network_name = azurerm_virtual_network.vnet-d365.name
   address_prefixes     = var.bastion_host_address_prefix
-}*/
+
 
 resource "azurerm_subnet" "snet-core-d365" {
   name                 = "snet-${var.environment}"
@@ -111,7 +111,7 @@ resource "azurerm_public_ip" "pip-bastion" {
   sku                 = "Standard"
 }
 
-/*resource "azurerm_bastion_host" "bh-d365" {
+resource "azurerm_bastion_host" "bh-d365" {
   name                = "bh-${var.business_unit}-d365"
   location            = azurerm_resource_group.rg-d365.location
   resource_group_name = azurerm_resource_group.rg-d365.name
@@ -121,4 +121,4 @@ resource "azurerm_public_ip" "pip-bastion" {
     subnet_id            = azurerm_subnet.snet-bastion.id
     public_ip_address_id = azurerm_public_ip.pip-bastion.id
   }
-}*/
+}
