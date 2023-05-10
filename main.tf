@@ -21,7 +21,7 @@ resource "azurerm_subnet" "snet-bastion" {
   resource_group_name  = azurerm_resource_group.rg-d365.name
   virtual_network_name = azurerm_virtual_network.vnet-d365.name
   address_prefixes     = var.bastion_host_address_prefix
-
+}
 
 resource "azurerm_subnet" "snet-core-d365" {
   name                 = "snet-${var.environment}"
